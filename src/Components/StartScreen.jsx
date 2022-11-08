@@ -16,6 +16,8 @@ export default function StartScreen(props) {
             <CustomizeForm 
                 customTime={props.customTime}
                 setCustomTime={props.setCustomTime}
+                // start={props.setStart}
+                setStart={props.setStart}
             />
             
         </main>

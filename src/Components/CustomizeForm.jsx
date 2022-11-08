@@ -14,6 +14,7 @@ export default function CustomizeForm (props) {
 
     function handleSubmit(event) {
         event.preventDefault()
+        props.setStart(true)
         console.log(props.customTime)
     }
 

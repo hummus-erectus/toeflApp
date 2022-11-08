@@ -1,5 +1,6 @@
 import React from 'react'
 import StartScreen from './Components/StartScreen'
+import QuestionScreen from './Components/QuestionScreen'
 
 import './App.css'
 
@@ -19,14 +20,16 @@ function App() {
     <div className="App">
       { !start
       ?
-        <StartScreen 
+      <StartScreen 
         customTime={customTime}
         setCustomTime={setCustomTime}
         start={start}
         setStart={setStart}
       />
       :
-      testing}
+      <QuestionScreen 
+        customTime={customTime}
+      />}
     </div>
   )
 }
