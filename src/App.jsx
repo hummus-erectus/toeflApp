@@ -13,11 +13,13 @@ function App() {
     }
   )
 
+  const [questionText, setQuestionText] = React.useState("Placeholder question")
+
   const [start, setStart] = React.useState(false)
   
 
   return (
-    <div className="App">
+    <div className="app--container">
       { !start
       ?
       <StartScreen 
@@ -25,10 +27,13 @@ function App() {
         setCustomTime={setCustomTime}
         start={start}
         setStart={setStart}
+        questionText={questionText}
+        setQuestionText={setQuestionText}
       />
       :
       <QuestionScreen 
         customTime={customTime}
+        questionText={questionText}
       />}
     </div>
   )
