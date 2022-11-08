@@ -19,7 +19,7 @@ export default function CustomizeForm (props) {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <label>
             Preparation time in seconds:
             <input
