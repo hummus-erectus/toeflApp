@@ -2,18 +2,23 @@ import React from 'react'
 
 export default function QuestionScreen (props) {
 
+    const [prepTime, setPrepTime] = React.useState(true)
     const [prepCounter, setPrepCounter] = React.useState(props.customTime.prepTime)
     const [speakCounter, setSpeakCounter] = React.useState(props.customTime.speakTime)
-    const [prepTime, setPrepTime] = React.useState(true)
     const question = props.questionText
 
     React.useEffect(() => {
-        prepCounter > 0 && setTimeout(() => setPrepCounter(prepCounter - 1), 1000)
-        if (prepCounter===0){
-            function delay(time) {
-                return new Promise(resolve => setTimeout(resolve, time));
+        if (prepCounter > 0){
+            setTimeout(() => setPrepCounter(prepCounter - 1), 1000)
+        }else{
+            if(props.customTime.prepTime>0){
+                function delay(time) {
+                    return new Promise(resolve => setTimeout(resolve, time))
+                }
+            delay(1000).then(() => setPrepTime(false))
+            }else{
+                setPrepTime(false) 
             }
-            delay(1000).then(() => setPrepTime(false));
         }
       }, [prepCounter]
     );

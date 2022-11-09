@@ -53,12 +53,17 @@ h1, h3{
   margin-left: 0;
   cursor: pointer;
   border: solid 4px #B98389;
-  border-radius: 20px;
+  border-radius: 50px;
   padding: 5px 10px;
 }
 
+.react-tabs__tab:focus{
+  outline: none;
+  box-shadow: 0 0 0 5px #DEEBF8;box-shadow: 3px;
+}
+
 .react-tabs__tab--selected{
-  border: solid 4px #B98389;
+  border: solid 4px #c09ca0;
   color: #F5F7FB;
   background: #c09ca0;
 }

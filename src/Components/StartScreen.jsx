@@ -7,10 +7,14 @@ export default function StartScreen(props) {
     
     const [customQuestion, setCustomQuestion] = React.useState("")
     const [questionSourceType, setQuestionSourceType] = React.useState(0)
+    const [userSelectedQuestion, setUserSelectedQuestion] = React.useState("")
 
     function handleCustomQuestionChange(event) {
         setCustomQuestion(event.target.value)
-        // console.log(customQuestion)
+    }
+
+    function handleQuestionSelect(event) {
+        setUserSelectedQuestion(event.target.value)
     }
 
     function handleChange(event) {
@@ -23,6 +27,9 @@ export default function StartScreen(props) {
         })
     }
 
+
+
+
     function handleSubmit(event) {
         event.preventDefault()
         props.setStart(true)
@@ -30,6 +37,10 @@ export default function StartScreen(props) {
             const randomNumber = Math.floor(Math.random() * props.questionData.length)
             const randomQuestion = props.questionData[randomNumber].question
             props.setQuestionText(randomQuestion)
+        }
+    
+        else if(questionSourceType ===1){
+            props.setQuestionText(userSelectedQuestion)
         }
         
         else if(questionSourceType === 2){
@@ -51,13 +62,25 @@ export default function StartScreen(props) {
                             <Tab>Type your own question</Tab>
                         </TabList>
                         <TabPanel>
-                            <p>Tab 1 works!</p>
+                            <p>Get ready for a random TOEFL independent speaking question!</p>
                         </TabPanel>
                         <TabPanel>
-                            <p>Tab 2 works!</p>
+                            <p>Browse by category and find a question that's right for you!</p>
+                            <select 
+                                size="5" 
+                                className='question-list'
+                                onChange={handleQuestionSelect}
+                                required={questionSourceType === 1}
+                            >
+                                    {props.questionData.map((q) => (
+                                        <option value={q.question}>
+                                            <p onClick={(event)=>handleQuestionSelect(event, q)}>{q.question}</p>
+                                        </option>
+                                    ))}
+                            </select>
                         </TabPanel>
                         <TabPanel>
-                            <p>Tab 3 works!</p>
+                            <p>Come up with a great question of your own!</p>
                             <input 
                                 type="text"
                                 placeholder="Type your question here"
@@ -65,6 +88,7 @@ export default function StartScreen(props) {
                                 name="customText"
                                 value={customQuestion}
                                 onChange={handleCustomQuestionChange}
+                                required={questionSourceType === 2}
                             />
                         </TabPanel>
                     </Tabs>
