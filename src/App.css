@@ -32,6 +32,10 @@ h1, h3{
   text-align: center;
 }
 
+/* .react-tabs{
+  margin: 2em;
+} */
+
 .react-tabs__tab-list{
   list-style-type: none;
   display: flex;
@@ -68,7 +72,15 @@ h1, h3{
 }
 
 .react-tabs__tab-panel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* background-color: #DEEBF8; */
+}
+
+.question--list{
+  height: 90px;
+  font-size: 14px;
 }
 
 .question--input{
