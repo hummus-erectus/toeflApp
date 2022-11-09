@@ -67,8 +67,8 @@ export default function StartScreen(props) {
                         <TabPanel>
                             <p>Browse by category and find a question that's right for you!</p>
                             <select 
-                                size="5" 
                                 className='question-list'
+                                size="5" 
                                 onChange={handleQuestionSelect}
                                 required={questionSourceType === 1}
                             >
@@ -82,6 +82,7 @@ export default function StartScreen(props) {
                         <TabPanel>
                             <p>Come up with a great question of your own!</p>
                             <input 
+                                className='question--input'
                                 type="text"
                                 placeholder="Type your question here"
                                 // className="form--input"

@@ -32,7 +32,6 @@ h1, h3{
   text-align: center;
 }
 
-
 .react-tabs__tab-list{
   list-style-type: none;
   display: flex;
@@ -69,7 +68,20 @@ h1, h3{
 }
 
 .react-tabs__tab-panel{
+  /* background-color: #DEEBF8; */
+}
+
+.question--input{
+  border-radius: 50px;
+  font-size: 2em;
+  border: none;
   background-color: #DEEBF8;
+  color: #c09ca0;
+}
+
+.question--input::placeholder{
+  font-size: 0.5em;
+  color: #c09ca0;
 }
 
 .question--text{
