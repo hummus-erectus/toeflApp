@@ -81,6 +81,7 @@ h1, h3{
 .question--list{
   height: 90px;
   font-size: 14px;
+  width: 90%;
 }
 
 .question--input{
