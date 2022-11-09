@@ -1,16 +1,16 @@
 import React from 'react'
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
+// import questionData from './questionData'
 // import CustomizeForm from './CustomizeForm'
 
 export default function StartScreen(props) {
     
     const [customQuestion, setCustomQuestion] = React.useState("")
-
     const [questionSourceType, setQuestionSourceType] = React.useState(0)
 
     function handleCustomQuestionChange(event) {
         setCustomQuestion(event.target.value)
-        console.log(customQuestion)
+        // console.log(customQuestion)
     }
 
     function handleChange(event) {
@@ -26,8 +26,15 @@ export default function StartScreen(props) {
     function handleSubmit(event) {
         event.preventDefault()
         props.setStart(true)
-        props.setQuestionText(customQuestion)
-        console.log(props.customTime)
+        if (questionSourceType === 0){
+            const randomNumber = Math.floor(Math.random() * props.questionData.length)
+            const randomQuestion = props.questionData[randomNumber].question
+            props.setQuestionText(randomQuestion)
+        }
+        
+        else if(questionSourceType === 2){
+            props.setQuestionText(customQuestion)
+        } 
     }
 
 
@@ -66,6 +73,8 @@ export default function StartScreen(props) {
                 Preparation time in seconds:
                 <input
                     type="number"
+                    min="0"
+                    max="60"
                     onChange={handleChange}
                     name="prepTime"
                     value={props.customTime.prepTime}
@@ -75,6 +84,8 @@ export default function StartScreen(props) {
                 Speaking time in seconds:
                 <input
                     type="number"
+                    min="0"
+                    max="60"
                     onChange={handleChange}
                     name="speakTime"
                     value={props.customTime.speakTime}

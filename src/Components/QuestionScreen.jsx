@@ -32,12 +32,12 @@ export default function QuestionScreen (props) {
     
 
     return(
-        <div>
-            <h1>{question}</h1>
+        <div className='question--container'>
+            <h1 className='question--text'>{question}</h1>
             {prepTime ?
-                <h2>Preparation time remaining: {prepCounter}</h2>
+                <h2 className='question--counter'>Preparation time remaining: {prepCounter}</h2>
                 :
-                <h2>Speaking time remaining: {speakCounter}</h2>
+                <h2 className='question--counter'>Speaking time remaining: {speakCounter}</h2>
             }
             {speakCounter===0 && 
                 <button onClick={handleRestartButtonClick}>Restart Speaking Timer</button>
