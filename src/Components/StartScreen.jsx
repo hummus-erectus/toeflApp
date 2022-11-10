@@ -118,29 +118,31 @@ export default function StartScreen(props) {
                         </TabPanel>
                     </Tabs>
                 </div>
-            <label>
-                Preparation time in seconds:
-                <input
-                    type="number"
-                    min="0"
-                    max="60"
-                    onChange={handleChange}
-                    name="prepTime"
-                    value={props.customTime.prepTime}
-                />
-            </label>
-            <label>
-                Speaking time in seconds:
-                <input
-                    type="number"
-                    min="0"
-                    max="60"
-                    onChange={handleChange}
-                    name="speakTime"
-                    value={props.customTime.speakTime}
-                />
-            </label>
-            <input type="submit" value="Start" />
+                <div className='question--time-inputs-container'>
+                    <label>
+                        Preparation time (in seconds):
+                        <input
+                            type="number"
+                            min="0"
+                            max="60"
+                            onChange={handleChange}
+                            name="prepTime"
+                            value={props.customTime.prepTime}
+                        />
+                    </label>
+                    <label>
+                        Speaking time (in seconds):
+                        <input
+                            type="number"
+                            min="0"
+                            max="60"
+                            onChange={handleChange}
+                            name="speakTime"
+                            value={props.customTime.speakTime}
+                        />
+                    </label> 
+                </div>
+                <input type="submit" value="Start" />
             </form>  
         </main>
     )

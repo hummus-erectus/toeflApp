@@ -36,6 +36,8 @@ function App() {
       <QuestionScreen 
         customTime={customTime}
         questionText={questionText}
+        start={start}
+        setStart={setStart}
       />}
     </div>
   )

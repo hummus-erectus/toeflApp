@@ -34,6 +34,10 @@ export default function QuestionScreen (props) {
         setSpeakCounter(props.customTime.speakTime)
     }
 
+    function handleChooseButtonClick(){
+        props.setStart(false)
+    }
+
     
 
     return(
@@ -47,6 +51,7 @@ export default function QuestionScreen (props) {
             {speakCounter===0 && 
                 <button onClick={handleRestartButtonClick}>Restart Speaking Timer</button>
             }
+            <button onClick={handleChooseButtonClick}>Choose a Different Question</button>
         </div>
     )
 }
