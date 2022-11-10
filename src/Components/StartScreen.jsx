@@ -63,24 +63,27 @@ export default function StartScreen(props) {
                             <Tab>Type your own question</Tab>
                         </TabList>
                         <TabPanel>
-                            <p>Get ready for a random TOEFL independent speaking question!</p>
-                            <img className='random-img' src={randomBox} alt="Randomize Symbol"/>
+                            <div className="tab--container">
+                                <p>Get ready for a random TOEFL independent speaking question!</p>
+                                <img className='random-img' src={randomBox} alt="Randomize Symbol"/>
+                            </div>
                         </TabPanel>
                         <TabPanel>
-                            <p>Browse by category and find a question that's right for you!</p>
-                            {/* <select 
-                                className='question--list'
-                                size="5" 
-                                onChange={handleQuestionSelect}
-                                required={questionSourceType === 1}
-                            >
-                                    {props.questionData.map((q) => (
-                                        <option value={q.question}>
-                                            <p onClick={(event)=>handleQuestionSelect(event, q)}>{q.question}</p>
-                                        </option>
-                                    ))}
-                            </select> */}
-                            <div className="question--list">
+                            <div className="tab--container">
+                                <p>Browse by category and find a question that's right for you!</p>
+                                {/* <select 
+                                    className='question--list'
+                                    size="5" 
+                                    onChange={handleQuestionSelect}
+                                    required={questionSourceType === 1}
+                                >
+                                        {props.questionData.map((q) => (
+                                            <option value={q.question}>
+                                                <p onClick={(event)=>handleQuestionSelect(event, q)}>{q.question}</p>
+                                            </option>
+                                        ))}
+                                </select> */}
+                                <div className="question--list">
                                     {props.questionData.map((q) => (
                                         <div key={q.id}>
                                             <input 
@@ -96,19 +99,22 @@ export default function StartScreen(props) {
                                             </label>
                                         </div>
                                     ))}
+                                </div>
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <p>Come up with a great question of your own!</p>
-                            <input 
-                                className='question--input'
-                                type="text"
-                                placeholder="Type your question here"
-                                name="customText"
-                                value={customQuestion}
-                                onChange={handleCustomQuestionChange}
-                                required={questionSourceType === 2}
-                            />
+                            <div className="tab--container">
+                                <p>Come up with a great question of your own!</p>
+                                <input 
+                                    className='question--input'
+                                    type="text"
+                                    placeholder="Type your question here"
+                                    name="customText"
+                                    value={customQuestion}
+                                    onChange={handleCustomQuestionChange}
+                                    required={questionSourceType === 2}
+                                />
+                            </div>
                         </TabPanel>
                     </Tabs>
                 </div>
