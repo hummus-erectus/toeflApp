@@ -1,5 +1,6 @@
 import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
+import randomBox from "../assets/randomBox.png"
 // import questionData from './questionData'
 // import CustomizeForm from './CustomizeForm'
 
@@ -63,10 +64,11 @@ export default function StartScreen(props) {
                         </TabList>
                         <TabPanel>
                             <p>Get ready for a random TOEFL independent speaking question!</p>
+                            <img className='random-img' src={randomBox} alt="Randomize Symbol"/>
                         </TabPanel>
                         <TabPanel>
                             <p>Browse by category and find a question that's right for you!</p>
-                            <select 
+                            {/* <select 
                                 className='question--list'
                                 size="5" 
                                 onChange={handleQuestionSelect}
@@ -77,7 +79,20 @@ export default function StartScreen(props) {
                                             <p onClick={(event)=>handleQuestionSelect(event, q)}>{q.question}</p>
                                         </option>
                                     ))}
-                            </select>
+                            </select> */}
+                            <div className="question--list">
+                                    {props.questionData.map((q) => (
+                                        <label key={q.id}>
+                                            {q.question}
+                                            <input 
+                                            type="radio" 
+                                            id={q.id} 
+                                            name="radios" 
+                                            value={q.question}
+                                            />
+                                        </label>
+                                    ))}
+                            </div>
                         </TabPanel>
                         <TabPanel>
                             <p>Come up with a great question of your own!</p>
