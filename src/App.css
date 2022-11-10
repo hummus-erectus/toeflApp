@@ -87,7 +87,8 @@ h1, h3{
 }
 
 .question--list input[type="radio"] {
-  display: none;
+  position: fixed;
+  opacity: 0%;
 }
 
 .question--list label{

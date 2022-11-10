@@ -82,15 +82,19 @@ export default function StartScreen(props) {
                             </select> */}
                             <div className="question--list">
                                     {props.questionData.map((q) => (
-                                        <label key={q.id}>
-                                            {q.question}
+                                        <div key={q.id}>
                                             <input 
-                                            type="radio" 
-                                            id={q.id} 
-                                            name="radios" 
-                                            value={q.question}
+                                                type="radio" 
+                                                id={q.id} 
+                                                name="radios" 
+                                                value={q.question}
+                                                onChange={handleQuestionSelect}
+                                                required={questionSourceType ===1}
                                             />
-                                        </label>
+                                            <label htmlFor={q.id} >
+                                                {q.question}
+                                            </label>
+                                        </div>
                                     ))}
                             </div>
                         </TabPanel>
