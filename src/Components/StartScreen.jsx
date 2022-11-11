@@ -71,18 +71,6 @@ export default function StartScreen(props) {
                         <TabPanel>
                             <div className="tab--container">
                                 <p>Browse by category and find a question that's right for you!</p>
-                                {/* <select 
-                                    className='question--list'
-                                    size="5" 
-                                    onChange={handleQuestionSelect}
-                                    required={questionSourceType === 1}
-                                >
-                                        {props.questionData.map((q) => (
-                                            <option value={q.question}>
-                                                <p onClick={(event)=>handleQuestionSelect(event, q)}>{q.question}</p>
-                                            </option>
-                                        ))}
-                                </select> */}
                                 <div className="question--list">
                                     {props.questionData.map((q) => (
                                         <div key={q.id}>
@@ -120,26 +108,32 @@ export default function StartScreen(props) {
                 </div>
                 <div className='question--time-inputs-container'>
                     <label>
-                        Preparation time (in seconds):
+                        <span className='time-label'>Preparation time:</span><br/>
                         <input
+                            className='number-input'
                             type="number"
                             min="0"
                             max="60"
                             onChange={handleChange}
                             name="prepTime"
                             value={props.customTime.prepTime}
+                            required="true"
                         />
+                        <span className = "seconds-label">Seconds</span>
                     </label>
                     <label>
-                        Speaking time (in seconds):
+                    <span className='time-label'>Speaking time:</span><br/>
                         <input
+                            className='number-input'
                             type="number"
                             min="0"
                             max="60"
                             onChange={handleChange}
                             name="speakTime"
                             value={props.customTime.speakTime}
+                            required="true"
                         />
+                        <span className = "seconds-label">Seconds</span>
                     </label> 
                 </div>
                 <input type="submit" value="Start" />
