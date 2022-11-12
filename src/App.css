@@ -40,10 +40,6 @@ h1, h3{
   text-align: center;
 }
 
-/* .react-tabs{
-  margin: 2em;
-} */
-
 .react-tabs__tab-list{
   list-style-type: none;
   display: flex;
@@ -53,7 +49,6 @@ h1, h3{
 
 .react-tabs__tab{
   flex: 1 1 0px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +65,7 @@ h1, h3{
 
 .react-tabs__tab:focus{
   outline: none;
-  box-shadow: 0 0 0 5px #DEEBF8;box-shadow: 3px;
+  box-shadow: 0 0 0 5px #DEEBF8;
 }
 
 .react-tabs__tab--selected{
@@ -79,9 +74,8 @@ h1, h3{
   background: #c09ca0;
 }
 
-.react-tabs__tab-panel{
-  
-  /* background-color: #DEEBF8; */
+.react-tabs__tab-panel p{
+  text-align: center;
 }
 
 .tab--container{
@@ -152,6 +146,7 @@ h1, h3{
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .time-label{
@@ -173,6 +168,35 @@ h1, h3{
   font-size: 0.8rem;
 }
 
+.start-button-container{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-button{
+  text-align: center;
+  background-color: #B98389;
+  color: #F5F7FB;
+  font-size: 2em;
+  font-weight: 700;
+  cursor: pointer;
+  border: solid 4px #B98389;
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+
+.start-button:active {
+  background-color: #F5F7FB;
+  color: #B98389;
+}
+
+.start-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #DEEBF8;
+}
+
 .question--text{
   text-align: center;
   font-size: 30px;
@@ -182,14 +206,34 @@ h1, h3{
   text-align: center;
 }
 
+.question--buttons-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.question--buttons-container button{
+  text-align: center;
+  background-color: #B98389;
+  color: #F5F7FB;
+  width: 300px;
+  font-weight: 700;
+  cursor: pointer;
+  border: solid 4px #B98389;
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+
+.question--buttons-container button:active{
+  background-color: #F5F7FB;
+  color: #B98389;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 ::-webkit-scrollbar {

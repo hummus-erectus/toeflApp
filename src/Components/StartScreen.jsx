@@ -117,7 +117,7 @@ export default function StartScreen(props) {
                             onChange={handleChange}
                             name="prepTime"
                             value={props.customTime.prepTime}
-                            required="true"
+                            required={true}
                         />
                         <span className = "seconds-label">Seconds</span>
                     </label>
@@ -131,12 +131,15 @@ export default function StartScreen(props) {
                             onChange={handleChange}
                             name="speakTime"
                             value={props.customTime.speakTime}
-                            required="true"
+                            required={true}
                         />
                         <span className = "seconds-label">Seconds</span>
                     </label> 
                 </div>
-                <input type="submit" value="Start" />
+                <div className='start-button-container'>
+                    <input className='start-button' type="submit" value="Start!"/>
+                </div>
+                
             </form>  
         </main>
     )

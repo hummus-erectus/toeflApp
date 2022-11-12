@@ -48,10 +48,12 @@ export default function QuestionScreen (props) {
                 :
                 <h2 className='question--counter'>Speaking time remaining: {speakCounter}</h2>
             }
-            {speakCounter===0 && 
-                <button onClick={handleRestartButtonClick}>Restart Speaking Timer</button>
-            }
-            <button onClick={handleChooseButtonClick}>Choose a Different Question</button>
+            <div className='question--buttons-container'>
+                <button className="choose-again-button" onClick={handleChooseButtonClick}>Choose a Different Question</button>
+                {speakCounter===0 && 
+                    <button className="restart-button" onClick={handleRestartButtonClick}>Restart Speaking Timer</button>
+                } 
+            </div>
         </div>
     )
 }
