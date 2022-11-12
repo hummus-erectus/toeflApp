@@ -13,7 +13,7 @@ export default function StartScreen(props) {
     const [userSelectedQuestion, setUserSelectedQuestion] = React.useState("")
 
     // state for questions filtered by category
-    const [filteredQuestions, setFilteredQuestions] = React.useState(props.questionData)
+    const [filteredQuestions, setFilteredQuestions] = React.useState([])
 
     function handleCustomQuestionChange(event) {
         setCustomQuestion(event.target.value)
@@ -38,12 +38,13 @@ export default function StartScreen(props) {
 
     const filterItem = (curcat) => {
         const filteredQuestionsArray = props.questionData.filter((newVal) => {
-          return newVal.category === curcat 
+            // console.log(curcat.Val)
+          return newVal.category === curcat.Val 
           
                 // comparing category for displaying data
         })
         setFilteredQuestions(filteredQuestionsArray)
-        console.log(filteredQuestionsArray)
+        // console.log(filteredQuestionsArray)
       }
 
 
