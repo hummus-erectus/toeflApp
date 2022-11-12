@@ -5,10 +5,15 @@ import randomBox from "../assets/randomBox.png"
 // import CustomizeForm from './CustomizeForm'
 
 export default function StartScreen(props) {
+
+    
     
     const [customQuestion, setCustomQuestion] = React.useState("")
     const [questionSourceType, setQuestionSourceType] = React.useState(0)
     const [userSelectedQuestion, setUserSelectedQuestion] = React.useState("")
+
+    // state for questions filtered by category
+    const [filteredQuestions, setFilteredQuestions] = React.useState(props.questionData)
 
     function handleCustomQuestionChange(event) {
         setCustomQuestion(event.target.value)
@@ -27,6 +32,19 @@ export default function StartScreen(props) {
             }
         })
     }
+
+    // FIlter for question categories
+    const categories = [...new Set(props.questionData.map((Val) => Val.category))]
+
+    const filterItem = (curcat) => {
+        const filteredQuestionsArray = props.questionData.filter((newVal) => {
+          return newVal.category === curcat 
+          
+                // comparing category for displaying data
+        })
+        setFilteredQuestions(filteredQuestionsArray)
+        console.log(filteredQuestionsArray)
+      }
 
 
 
@@ -71,8 +89,22 @@ export default function StartScreen(props) {
                         <TabPanel>
                             <div className="tab--container">
                                 <p>Browse by category and find a question that's right for you!</p>
+                                <div className='question--category-buttons'>
+                                {categories.map((Val, id) => {
+                                    return (
+                                        <button
+                                            type='button'
+                                            className='category-button'
+                                            onClick={() => filterItem({Val})}
+                                            key={id}
+                                        >
+                                            {Val}
+                                        </button> 
+                                    )
+                                })}
+                                </div>
                                 <div className="question--list">
-                                    {props.questionData.map((q) => (
+                                    {filteredQuestions.map((q) => (
                                         <div key={q.id}>
                                             <input 
                                                 type="radio" 
