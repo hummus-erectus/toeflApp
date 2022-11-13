@@ -113,8 +113,14 @@ h1, h3{
   width: 100%;
 }
 
-.question--list input[type="radio"]:checked+label{
+.question--list input[type="radio"]:checked+label, .question--list input[type="radio"]:checked:hover+label {
+  background-color: #69b3fd;
+  color: #DEEBF8;
+}
+
+.question--list input[type="radio"]:hover+label{
   background-color: #DEEBF8;
+  color: #293264;
 }
 
 .question--category-radios input[type="radio"]{
