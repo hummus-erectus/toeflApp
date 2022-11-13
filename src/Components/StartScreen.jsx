@@ -90,27 +90,29 @@ export default function StartScreen(props) {
                         <TabPanel>
                             <div className="tab--container">
                                 <p>Browse by category and find a question that's right for you!</p>
-                                <div className='question--category-radios'>
-                                    <input
-                                        type='radio'
-                                        className='category-radio'
-                                        id={"all"}
-                                        name="category-radios" 
-                                        onChange={() => setFilteredQuestions(props.questionData)}
-                                        checked={filteredQuestions===props.questionData}
-                                    />
-                                    <label htmlFor={"all"} >
-                                        All
-                                    </label>
+                                <div className='question--category-radios-container'>
+                                    <div className='question--category-radios'>
+                                        <input
+                                            type='radio'
+                                            className='category-radio'
+                                            id={"all"}
+                                            name="category-radios" 
+                                            onChange={() => setFilteredQuestions(props.questionData)}
+                                            checked={filteredQuestions===props.questionData}
+                                        />
+                                        <label htmlFor={"all"} >
+                                            All
+                                        </label>
+                                    </div>
                                     
                                     {categories.map((Val, id) => {
                                         return (
-                                            <div key={id}>
+                                            <div key={id} className='question--category-radios'>
                                                 <input 
                                                     type="radio"  
                                                     id={Val}
                                                     name="category-radios"
-                                                    className='category-button' 
+                                                    className='category-radio' 
                                                     value={Val}
                                                     onChange={() => filterItem({Val})}
                                                     checked={filteredQuestions!==props.questionData && filteredQuestions[0].category===Val}

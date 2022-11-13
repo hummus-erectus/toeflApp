@@ -2,7 +2,7 @@ export default [
     {
         id: 1,
         question: "Do you prefer cats or dogs?",
-        category: "Personal Interests"
+        category: "Interests"
     },
     {
         id: 2,

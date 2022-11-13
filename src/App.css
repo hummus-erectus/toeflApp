@@ -128,18 +128,25 @@ h1, h3{
   opacity: 0%;
 }
 
+.question--category-radios-container{
+  display:flex;
+  flex-wrap: wrap;
+  row-gap: 1.5em;
+  margin-bottom: 1em;
+}
+
 .question--category-radios{
   list-style-type: none;
-  display: flex;
+  /* display: inline; */
   /* gap: 0.5em; */
   /* flex-direction: column; */
 }
 
 .question--category-radios label{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
 
   font-weight: 700;
   margin: 0.5em;
