@@ -108,13 +108,14 @@ export default function StartScreen(props) {
                                             <div key={id}>
                                                 <input 
                                                     type="radio"  
-                                                    id={id}
+                                                    id={Val}
                                                     name="category-radios"
                                                     className='category-button' 
                                                     value={Val}
                                                     onChange={() => filterItem({Val})}
+                                                    checked={filteredQuestions!==props.questionData && filteredQuestions[0].category===Val}
                                                 />
-                                                <label htmlFor={id} >
+                                                <label htmlFor={Val} >
                                                     {Val}
                                                 </label>
                                             </div>
