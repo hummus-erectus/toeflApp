@@ -13,7 +13,7 @@ export default function StartScreen(props) {
     const [userSelectedQuestion, setUserSelectedQuestion] = React.useState("")
 
     // state for questions filtered by category
-    const [filteredQuestions, setFilteredQuestions] = React.useState([])
+    const [filteredQuestions, setFilteredQuestions] = React.useState(props.questionData)
 
     function handleCustomQuestionChange(event) {
         setCustomQuestion(event.target.value)
@@ -90,19 +90,47 @@ export default function StartScreen(props) {
                         <TabPanel>
                             <div className="tab--container">
                                 <p>Browse by category and find a question that's right for you!</p>
-                                <div className='question--category-buttons'>
-                                {categories.map((Val, id) => {
-                                    return (
-                                        <button
-                                            type='button'
-                                            className='category-button'
-                                            onClick={() => filterItem({Val})}
-                                            key={id}
-                                        >
-                                            {Val}
-                                        </button> 
-                                    )
-                                })}
+                                <div className='question--category-radios'>
+                                    <input
+                                        type='radio'
+                                        className='category-radio'
+                                        id={"all"}
+                                        name="category-radios" 
+                                        onChange={() => setFilteredQuestions(props.questionData)}
+                                        checked={filteredQuestions===props.questionData}
+                                    />
+                                    <label htmlFor={"all"} >
+                                        All
+                                    </label>
+                                    
+                                    {categories.map((Val, id) => {
+                                        return (
+                                            <div key={id}>
+                                                <input 
+                                                    type="radio"  
+                                                    id={id}
+                                                    name="category-radios"
+                                                    className='category-button' 
+                                                    value={Val}
+                                                    onChange={() => filterItem({Val})}
+                                                />
+                                                <label htmlFor={id} >
+                                                    {Val}
+                                                </label>
+                                            </div>
+                                        
+                                            
+                                            
+                                            // <button
+                                            //     type='button'
+                                            //     className='category-button'
+                                            //     onClick={() => filterItem({Val})}
+                                            //     key={id}
+                                            // >
+                                            //     {Val}
+                                            // </button> 
+                                        )
+                                    })}
                                 </div>
                                 <div className="question--list">
                                     {filteredQuestions.map((q) => (
