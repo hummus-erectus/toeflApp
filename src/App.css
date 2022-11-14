@@ -302,8 +302,8 @@ input::-webkit-inner-spin-button {
 }
 
 .audio-recorder{
-  display: none;
-  background-color: #69b3fd;
+  display: none !important;
+  background-color: #69b3fd !important;
 }
 
 @media screen and (min-width: 320px) {
