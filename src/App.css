@@ -301,6 +301,10 @@ input::-webkit-inner-spin-button {
   background-color: #DEEBF8;
 }
 
+.audio-recorder{
+  display: none;
+}
+
 @media screen and (min-width: 320px) {
   .question--text {
     font-size: calc(40px + 6 * ((100vw - 320px) / 680));
