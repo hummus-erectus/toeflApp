@@ -27,7 +27,8 @@ export default function VoiceRecorder (props) {
 
     return (
         <div>
-            <AudioRecorder 
+            <AudioRecorder
+                id="voicerec" 
                 onRecordingComplete={(blob) => addAudioElement(blob)}
                 recorderControls={recorderControls} 
             />

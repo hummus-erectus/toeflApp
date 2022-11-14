@@ -3,7 +3,7 @@ import StartScreen from './Components/StartScreen'
 import QuestionScreen from './Components/QuestionScreen'
 import questionData from './Components/questionData'
 
-import './App.css'
+
 
 function App() {
 
