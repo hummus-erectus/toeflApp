@@ -1,5 +1,7 @@
 import React from 'react'
 import VoiceRecorder from "./VoiceRecorder"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faMicrophone} from '@fortawesome/free-solid-svg-icons'
 
 export default function QuestionScreen (props) {
 
@@ -62,6 +64,15 @@ export default function QuestionScreen (props) {
                 <h2 className='question--counter'>Preparation time remaining: {prepCounter}</h2>
                 :
                 <h2 className='question--counter'>Speaking time remaining: {speakCounter}</h2>
+            }
+            {(userSpeaking && props.useMic) &&
+                <div className='question--recording-alert'>
+                    <FontAwesomeIcon 
+                        className='blink'
+                        icon={faMicrophone} 
+                    />
+                    <p>Recording...</p>
+                </div>
             }
             <div className='question--buttons-container'>
                 <button className="choose-again-button" onClick={handleChooseButtonClick}>Choose a Different Question</button>

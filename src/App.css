@@ -328,6 +328,23 @@ input:checked + .slider:before {
   text-align: center;
 }
 
+.question--recording-alert{
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  align-items: center;
+}
+
+/* Animation for mic icon */
+.blink {
+  color: #B98389;
+  animation: blinker 1s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+}
+@keyframes blinker {  
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 .question--buttons-container{
   display: flex;
   flex-direction: column;
