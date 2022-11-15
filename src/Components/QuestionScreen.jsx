@@ -55,7 +55,7 @@ export default function QuestionScreen (props) {
     
 
     return(
-        <div id="q-container" className='question--container'>
+        <div  className='question--container'>
             <h1 className='question--text'>{question}</h1>
             {prepTime ?
                 <h2 className='question--counter'>Preparation time remaining: {prepCounter}</h2>
@@ -73,6 +73,8 @@ export default function QuestionScreen (props) {
                 userSpeaking={userSpeaking}
                 speakCounter={speakCounter}
             />
+            <div id="recordings-container">
+            </div>
         </div>
     )
 }

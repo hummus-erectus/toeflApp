@@ -6,9 +6,18 @@ export default function VoiceRecorder (props) {
     const addAudioElement = (blob) => {
         const url = URL.createObjectURL(blob)
         const audio = document.createElement("audio")
+        const recContainer = document.getElementById("recordings-container")
+        
         audio.src = url
         audio.controls = true
-        document.getElementById("q-container").appendChild(audio)
+        
+        // Show only the three most recent recordings:
+        recContainer.appendChild(audio)
+        let numChildren = recContainer.childElementCount
+        if (numChildren > 3) {
+            let recordings = recContainer.getElementsByTagName('audio')
+            recContainer.removeChild(recordings[0])
+        }
       }
 
       React.useEffect(() => {

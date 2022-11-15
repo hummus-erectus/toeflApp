@@ -3,7 +3,7 @@ import StartScreen from './Components/StartScreen'
 import QuestionScreen from './Components/QuestionScreen'
 import questionData from './Components/questionData'
 
-
+import './App.css'
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
   )
 
   const [questionText, setQuestionText] = React.useState("Placeholder question")
+  const [useMic, setUseMic] = React.useState(false)
 
   const [start, setStart] = React.useState(false)
   
@@ -31,6 +32,8 @@ function App() {
         questionText={questionText}
         setQuestionText={setQuestionText}
         questionData={questionData}
+        useMic={useMic}
+        setUseMic={setUseMic}
       />
       :
       <QuestionScreen 
@@ -38,6 +41,7 @@ function App() {
         questionText={questionText}
         start={start}
         setStart={setStart}
+        useMic={useMic}
       />}
     </div>
   )

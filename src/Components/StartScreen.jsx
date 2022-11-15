@@ -1,12 +1,8 @@
 import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import randomBox from "../assets/randomBox.png"
-// import questionData from './questionData'
-// import CustomizeForm from './CustomizeForm'
 
 export default function StartScreen(props) {
-
-    
     
     const [customQuestion, setCustomQuestion] = React.useState("")
     const [questionSourceType, setQuestionSourceType] = React.useState(0)
@@ -33,25 +29,25 @@ export default function StartScreen(props) {
         })
     }
 
+    function handleMicPermissionChange(event) {
+        console.log(event.target.checked)
+        props.setUseMic(event.target.checked)        
+    }
+
     // FIlter for question categories
     const categories = [...new Set(props.questionData.map((Val) => Val.category))]
 
     const filterItem = (curcat) => {
         const filteredQuestionsArray = props.questionData.filter((newVal) => {
-            // console.log(curcat.Val)
-          return newVal.category === curcat.Val 
-          
-                // comparing category for displaying data
+        // comparing category for displaying data
+            return newVal.category === curcat.Val                
         })
         setFilteredQuestions(filteredQuestionsArray)
-        // console.log(filteredQuestionsArray)
       }
-
-
-
 
     function handleSubmit(event) {
         event.preventDefault()
+        console.log(props.useMic)
         props.setStart(true)
         if (questionSourceType === 0){
             const randomNumber = Math.floor(Math.random() * props.questionData.length)
@@ -67,7 +63,6 @@ export default function StartScreen(props) {
             props.setQuestionText(customQuestion)
         } 
     }
-
 
     return(
         <main>
@@ -121,17 +116,6 @@ export default function StartScreen(props) {
                                                     {Val}
                                                 </label>
                                             </div>
-                                        
-                                            
-                                            
-                                            // <button
-                                            //     type='button'
-                                            //     className='category-button'
-                                            //     onClick={() => filterItem({Val})}
-                                            //     key={id}
-                                            // >
-                                            //     {Val}
-                                            // </button> 
                                         )
                                     })}
                                 </div>
@@ -199,6 +183,21 @@ export default function StartScreen(props) {
                         />
                         <span className = "seconds-label">Seconds</span>
                     </label> 
+                </div>
+                <div className='mic-permission-container'>
+                    Use microphone to record speech
+                    <div><label className="switch">
+                        <input 
+                            type="checkbox"
+                            onChange={handleMicPermissionChange}
+                            // checked={props.useMic}
+                            id="micPermitted"
+                            name="micPermitted"
+                        />
+                        <span className="slider round"></span>
+                    </label>
+                    </div>
+                    
                 </div>
                 <div className='start-button-container'>
                     <input className='start-button' type="submit" value="Start!"/>
