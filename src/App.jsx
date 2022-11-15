@@ -42,6 +42,7 @@ function App() {
         start={start}
         setStart={setStart}
         useMic={useMic}
+        setUseMic={setUseMic}
       />}
     </div>
   )

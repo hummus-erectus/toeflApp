@@ -31,7 +31,21 @@ export default function StartScreen(props) {
 
     function handleMicPermissionChange(event) {
         console.log(event.target.checked)
-        props.setUseMic(event.target.checked)        
+        
+        if(event.target.checked===true){navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                console.log('User allowed mic permission')
+                props.setUseMic(true)
+        })
+        .catch(function(err) {
+            console.log('User blocked mic permission')
+            event.target.checked=false
+            props.setUseMic(false)
+            alert("We need permission to use your microphone. You can update permissions in your browser settings.")
+        })
+        }else{
+            props.setUseMic(false)
+        }        
     }
 
     // FIlter for question categories

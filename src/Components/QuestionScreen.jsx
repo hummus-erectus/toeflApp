@@ -50,6 +50,7 @@ export default function QuestionScreen (props) {
 
     function handleChooseButtonClick(){
         props.setStart(false)
+        props.setUseMic(false)
     }
 
     
@@ -68,11 +69,12 @@ export default function QuestionScreen (props) {
                     <button className="restart-button" onClick={handleRestartButtonClick}>Restart Speaking Timer</button>
                 } 
             </div>
+            {props.useMic && 
             <VoiceRecorder
                 prepTime={prepTime}
                 userSpeaking={userSpeaking}
                 speakCounter={speakCounter}
-            />
+            />}
             <div id="recordings-container">
             </div>
         </div>
