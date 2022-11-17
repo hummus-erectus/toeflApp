@@ -396,7 +396,6 @@ input::-webkit-inner-spin-button {
 
 .audio-recorder{
   display: none !important;
-  background-color: #69b3fd !important;
 }
 
 #recordings-container{

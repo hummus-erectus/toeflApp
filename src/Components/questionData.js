@@ -6,7 +6,7 @@ export default [
     },
     {
         id: 2,
-        question: "Do you agree or disagree with the following statement? Children should learn to code from an early age",
+        question: "Do you agree or disagree with the following statement? Children should learn to code from an early age.",
         category: "Education"
     },
     {
@@ -21,7 +21,7 @@ export default [
     },
     {
         id: 5,
-        question: "Do you agree or disagree with the following statement? Teachers should assign homeowrk to students every day.",
+        question: "Do you agree or disagree with the following statement? Teachers should assign homework to students every day.",
         category: "Education"
     },
     {
