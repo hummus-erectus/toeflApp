@@ -3,8 +3,6 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import randomBox from "../assets/randomBox.png"
 
 export default function StartScreen(props) {
-
-    // console.log(props.questionData)
     
     const [customQuestion, setCustomQuestion] = React.useState("")
     const [questionSourceType, setQuestionSourceType] = React.useState(0)

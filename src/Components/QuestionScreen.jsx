@@ -2,6 +2,7 @@ import React from 'react'
 import VoiceRecorder from "./VoiceRecorder"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faMicrophone} from '@fortawesome/free-solid-svg-icons'
+import chime from '../assets/chime.wav'
 
 export default function QuestionScreen (props) {
 
@@ -10,6 +11,7 @@ export default function QuestionScreen (props) {
     const [prepCounter, setPrepCounter] = React.useState(props.customTime.prepTime)
     const [speakCounter, setSpeakCounter] = React.useState(props.customTime.speakTime)
     const question = props.questionText
+    const audio = new Audio(chime)
 
     React.useEffect(() => {
         if (prepCounter > 0){
@@ -33,17 +35,16 @@ export default function QuestionScreen (props) {
 
     React.useEffect(() => {
         if (userSpeaking){
-            speakCounter > 0 ? setTimeout(() => setSpeakCounter(speakCounter - 1), 1000) : setTimeout(() => setUserSpeaking(false), 1000)
+            speakCounter > 0 ? 
+                setTimeout(() => setSpeakCounter(speakCounter - 1), 1000) 
+            : 
+                setTimeout(() => {
+                    setUserSpeaking(false)
+                    audio.play()
+                }, 1000)
         }
       }, [userSpeaking, speakCounter]
     )
-
-    // React.useEffect(() => {
-    //     if (speakCounter===0){
-    //         setTimeout(() => setUserSpeaking(false), 3000)
-    //     }
-    //   }, [userSpeaking, speakCounter]
-    // )
 
     function handleRestartButtonClick(){
         setUserSpeaking(true)
@@ -54,8 +55,6 @@ export default function QuestionScreen (props) {
         props.setStart(false)
         props.setUseMic(false)
     }
-
-    
 
     return(
         <div  className='question--container'>
