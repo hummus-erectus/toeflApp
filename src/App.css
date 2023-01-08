@@ -462,43 +462,43 @@ input::-webkit-inner-spin-button {
 
 
 /* Navbar media queries - to refactor with existing queries */
-
-@media (max-width: 768px) {
-  .nav-elements ul li:not(:last-child) {
-    margin-right: 30px;
-  }
-}
-
-@media (max-width: 600px) {
-  .menu-icon {
-    display: block;
-    cursor: pointer;
-    color: #FFFAD1;
+  @media (max-width: 768px) {
+    .nav-elements ul li:not(:last-child) {
+      margin-right: 30px;
+    }
   }
 
-  .nav-elements {
-    position: absolute;
-    z-index: 100;
-    right: 0;
-    top: 60px;
-    background-color: #B98389;
-    width: 0px;
-    height: calc(100vh - 60px);
-    transition: all 0.3s ease-in;
-    overflow: hidden;
-  }
+  @media (max-width: 600px) {
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      color: #FFFAD1;
+    }
 
-  .nav-elements.active {
-    width: 270px;
-  }
+    .nav-elements {
+      position: absolute;
+      z-index: 100;
+      right: 0;
+      top: 60px;
+      background-color: #B98389;
+      width: 0px;
+      height: calc(100vh - 60px);
+      transition: all 0.3s ease-in;
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
-  .nav-elements ul {
-    display: flex;
-    flex-direction: column;
-  }
+    .nav-elements.active {
+      width: 270px;
+    }
 
-  .nav-elements ul li {
-    margin-right: unset;
-    margin-top: 22px;
+    .nav-elements ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-elements ul li {
+      margin-right: unset;
+      margin-top: 22px;
+    }
   }
-}

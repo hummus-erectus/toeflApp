@@ -26,10 +26,10 @@ function Navbar() {
         </div>
         <div className={`nav-elements  ${showNavbar && 'active'}`}>
           <ul>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/guide'>How To Use</Link></li>
-            <li><Link to='/tips'>TOEFL Speaking Tips</Link></li>
-            <li><Link to='/about'>About</Link></li>
+            <li><Link to='/' onClick={() => setShowNavbar(false)}>Home</Link></li>
+            <li><Link to='/guide' onClick={() => setShowNavbar(false)}>How To Use</Link></li>
+            <li><Link to='/tips' onClick={() => setShowNavbar(false)}>TOEFL Speaking Tips</Link></li>
+            <li><Link to='/about' onClick={() => setShowNavbar(false)}>About</Link></li>
           </ul>
         </div>
       </div>
