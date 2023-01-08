@@ -1,15 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
 import randomBox from "../assets/randomBox.png"
 
 export default function StartScreen(props) {
     
-    const [customQuestion, setCustomQuestion] = React.useState("")
-    const [questionSourceType, setQuestionSourceType] = React.useState(0)
-    const [userSelectedQuestion, setUserSelectedQuestion] = React.useState("")
+    const [customQuestion, setCustomQuestion] = useState("")
+    const [questionSourceType, setQuestionSourceType] = useState(0)
+    const [userSelectedQuestion, setUserSelectedQuestion] = useState("")
+
+    const navigate = useNavigate()
 
     // state for questions filtered by category
-    const [filteredQuestions, setFilteredQuestions] = React.useState(props.questionData)
+    const [filteredQuestions, setFilteredQuestions] = useState(props.questionData)
 
     function handleCustomQuestionChange(event) {
         setCustomQuestion(event.target.value)
@@ -30,7 +34,6 @@ export default function StartScreen(props) {
     }
 
     function handleMicPermissionChange(event) {
-        console.log(event.target.checked)
         
         if(event.target.checked===true){navigator.mediaDevices.getUserMedia({ audio: true })
             .then(function(stream) {
@@ -48,7 +51,7 @@ export default function StartScreen(props) {
         }        
     }
 
-    // FIlter for question categories
+    // Filter for question categories
     const categories = [...new Set(props.questionData.map((Val) => Val.category))]
 
     const filterItem = (curcat) => {
@@ -57,7 +60,7 @@ export default function StartScreen(props) {
             return newVal.category === curcat.Val                
         })
         setFilteredQuestions(filteredQuestionsArray)
-      }
+    }
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -76,6 +79,8 @@ export default function StartScreen(props) {
         else if(questionSourceType === 2){
             props.setQuestionText(customQuestion)
         } 
+
+        navigate('/Question')
     }
 
     return(

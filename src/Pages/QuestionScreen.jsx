@@ -1,19 +1,36 @@
 import React from 'react'
-import VoiceRecorder from "./VoiceRecorder"
+import { useState, useEffect } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
+import VoiceRecorder from "../Components/VoiceRecorder"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faMicrophone} from '@fortawesome/free-solid-svg-icons'
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
 import chime from '../assets/chime.wav'
 
 export default function QuestionScreen (props) {
 
-    const [prepTime, setPrepTime] = React.useState(true)
-    const [userSpeaking, setUserSpeaking] = React.useState(false)
-    const [prepCounter, setPrepCounter] = React.useState(props.customTime.prepTime)
-    const [speakCounter, setSpeakCounter] = React.useState(props.customTime.speakTime)
-    const question = props.questionText
+    const [question, setQuestion] = useState('')
+    const [prepTime, setPrepTime] = useState(true)
+    const [userSpeaking, setUserSpeaking] = useState(false)
+    const [prepCounter, setPrepCounter] = useState(props.customTime.prepTime)
+    const [speakCounter, setSpeakCounter] = useState(props.customTime.speakTime)
+    let userQuestion = props.questionText
+    const navigate = useNavigate()
     const audio = new Audio(chime)
 
-    React.useEffect(() => {
+    useEffect(() => {
+        if (!userQuestion){
+            const sessionQuestion = sessionStorage.getItem("Question")
+            if (sessionQuestion == '' || !sessionQuestion) {
+                navigate('/')
+            } else {
+                userQuestion = sessionQuestion
+            }
+        }
+        sessionStorage.setItem("Question", userQuestion)
+        userQuestion && setQuestion(userQuestion)
+    }, [])
+
+    useEffect(() => {
         if (prepCounter > 0){
             setTimeout(() => setPrepCounter(prepCounter - 1), 1000)
         }else{
@@ -31,9 +48,9 @@ export default function QuestionScreen (props) {
             }
         }
       }, [prepCounter]
-    );
+    )
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (userSpeaking){
             speakCounter > 0 ? 
                 setTimeout(() => setSpeakCounter(speakCounter - 1), 1000) 
@@ -54,6 +71,7 @@ export default function QuestionScreen (props) {
     function handleChooseButtonClick(){
         props.setStart(false)
         props.setUseMic(false)
+        navigate('/')
     }
 
     return(
