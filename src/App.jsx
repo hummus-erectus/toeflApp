@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import StartScreen from './Pages/StartScreen'
 import QuestionScreen from './Pages/QuestionScreen'
 import Navbar from './Components/Navbar'
+import Guide from './Pages/Guide'
+import Tips from './Pages/Tips'
+import About from './Pages/About'
 // import questionData from './Components/questionData'  <-- used if not calling API
 
 import './App.css'
@@ -80,7 +83,10 @@ function App() {
             useMic={useMic}
             setUseMic={setUseMic}
           />} />
-          {/* <Route path='/about' element={<About />} /> */}
+          <Route path='/guide' element={<Guide />} />
+          <Route path='/tips' element={<Tips />} />
+          <Route path='/about' element={<About />} />
+
 
         </Routes>
       </Router>
