@@ -80,7 +80,7 @@ export default function StartScreen(props) {
             props.setQuestionText(customQuestion)
         } 
 
-        navigate('/Question')
+        navigate('/question')
     }
 
     return(
