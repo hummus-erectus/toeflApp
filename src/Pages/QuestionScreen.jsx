@@ -75,36 +75,38 @@ export default function QuestionScreen (props) {
     }
 
     return(
-        <div  className='question--container'>
-            <h1 className='question--text'>{question}</h1>
-            {prepTime ?
-                <h2 className='question--counter'>Preparation time remaining: {prepCounter}</h2>
-                :
-                <h2 className='question--counter'>Speaking time remaining: {speakCounter}</h2>
-            }
-            {(userSpeaking && props.useMic) &&
-                <div className='question--recording-alert'>
-                    <FontAwesomeIcon 
-                        className='blink'
-                        icon={faMicrophone} 
-                    />
-                    <p>Recording...</p>
+        <main>
+            <div className='page-container'>
+                <h1 className='question--text'>{question}</h1>
+                {prepTime ?
+                    <h2 className='question--counter'>Preparation time remaining: {prepCounter}</h2>
+                    :
+                    <h2 className='question--counter'>Speaking time remaining: {speakCounter}</h2>
+                }
+                {(userSpeaking && props.useMic) &&
+                    <div className='question--recording-alert'>
+                        <FontAwesomeIcon 
+                            className='blink'
+                            icon={faMicrophone} 
+                        />
+                        <p>Recording...</p>
+                    </div>
+                }
+                <div className='question--buttons-container'>
+                    <button className="choose-again-button" onClick={handleChooseButtonClick}>Choose a Different Question</button>
+                    {(speakCounter===0 && userSpeaking===false) && 
+                        <button className="restart-button" onClick={handleRestartButtonClick}>Restart Speaking Timer</button>
+                    } 
                 </div>
-            }
-            <div className='question--buttons-container'>
-                <button className="choose-again-button" onClick={handleChooseButtonClick}>Choose a Different Question</button>
-                {(speakCounter===0 && userSpeaking===false) && 
-                    <button className="restart-button" onClick={handleRestartButtonClick}>Restart Speaking Timer</button>
-                } 
+                {props.useMic && 
+                <VoiceRecorder
+                    prepTime={prepTime}
+                    userSpeaking={userSpeaking}
+                    speakCounter={speakCounter}
+                />}
+                <div id="recordings-container">
+                </div>
             </div>
-            {props.useMic && 
-            <VoiceRecorder
-                prepTime={prepTime}
-                userSpeaking={userSpeaking}
-                speakCounter={speakCounter}
-            />}
-            <div id="recordings-container">
-            </div>
-        </div>
+        </main>
     )
 }
