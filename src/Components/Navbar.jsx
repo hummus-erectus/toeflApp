@@ -28,7 +28,7 @@ function Navbar() {
           <ul>
             <li><Link to='/' onClick={() => setShowNavbar(false)}>Home</Link></li>
             <li><Link to='/guide' onClick={() => setShowNavbar(false)}>How To Use</Link></li>
-            <li><Link to='/tips' onClick={() => setShowNavbar(false)}>TOEFL Speaking Tips</Link></li>
+            <li><Link to='/tips' onClick={() => setShowNavbar(false)}>TOEFL Tips</Link></li>
             <li><Link to='/about' onClick={() => setShowNavbar(false)}>About</Link></li>
           </ul>
         </div>
