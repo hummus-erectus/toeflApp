@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react'
 import StartScreen from './Pages/StartScreen'
 import QuestionScreen from './Pages/QuestionScreen'
 import Navbar from './Components/Navbar'
+import Footer from './Components/Footer'
 import Guide from './Pages/Guide'
 import Tips from './Pages/Tips'
 import About from './Pages/About'
+import NotFound from './Pages/NotFound'
 // import questionData from './Components/questionData'  <-- used if not calling API
 
 import './App.css'
@@ -34,31 +36,6 @@ function App() {
     }, [])
 
   return (
-    // questionData.length>0 && <div className="app--container">
-    //   { !start
-    //   ?
-    //   <StartScreen 
-    //     customTime={customTime}
-    //     setCustomTime={setCustomTime}
-    //     start={start}
-    //     setStart={setStart}
-    //     questionText={questionText}
-    //     setQuestionText={setQuestionText}
-    //     questionData={questionData}
-    //     useMic={useMic}
-    //     setUseMic={setUseMic}
-    //   />
-    //   :
-    //   <QuestionScreen 
-    //     customTime={customTime}
-    //     questionText={questionText}
-    //     start={start}
-    //     setStart={setStart}
-    //     useMic={useMic}
-    //     setUseMic={setUseMic}
-    //   />}
-    // </div>
-
     <>
       <Router>
         <Navbar />
@@ -86,9 +63,10 @@ function App() {
           <Route path='/guide' element={<Guide />} />
           <Route path='/tips' element={<Tips />} />
           <Route path='/about' element={<About />} />
-
-
+          <Route path='/404' element={<NotFound />}/>
+          <Route path='/*' element={<NotFound />}/>
         </Routes>
+      <Footer />
       </Router>
     </>
 

@@ -4,9 +4,10 @@
   box-sizing: border-box;
 }
 
+
 body{
   margin:0;
-  background-color: #FFFAD1;
+  background-color: #293264;
   color: #293264;
   font-family: 'Roboto Mono', monospace;
 }
@@ -31,7 +32,6 @@ body{
   .logo-img {
     height: 50px;
   }
-
 
   .menu-icon {
     display: none;
@@ -70,14 +70,28 @@ body{
     background-color: #69b3fd;
   }
 
-
-
-
+/* Footer styling */
+  footer{
+    width: 100%;
+    background-color: #293264;
+    color: #FFFAD1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
 
 main{
+  min-width: 325px;
+  min-height: 1000px;
   margin: auto;
   padding: 3em;
   background-color: #FFFAD1;
+  display: flex;
+  justify-content: center;
+}
+
+.page-container{
   max-width: 885px;
 }
 
