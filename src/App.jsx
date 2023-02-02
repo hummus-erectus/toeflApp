@@ -60,7 +60,7 @@ function App() {
             useMic={useMic}
             setUseMic={setUseMic}
           />} />
-          <Route path='/guide' element={<Guide />} />
+          {/* <Route path='/guide' element={<Guide />} /> */}
           <Route path='/tips' element={<Tips />} />
           <Route path='/about' element={<About />} />
           <Route path='/404' element={<NotFound />}/>
