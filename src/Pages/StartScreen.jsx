@@ -86,7 +86,7 @@ export default function StartScreen(props) {
     return(
         <main>
             <div className='page-container'>
-                <h1> TOEFL Independent Speaking Practice</h1>
+                <h1> TOEFL Independent Speaking Practice - NEW!</h1>
                 <h3> Test your speaking skills and prepare for the TOEFL exam!</h3>
                 <form onSubmit={handleSubmit}>
                     <div className='start--question-type'>
